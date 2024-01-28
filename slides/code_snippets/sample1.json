@@ -1,0 +1,57 @@
+
+Recorded call to : Conversation Details API
+
+REQUEST
+--------------------------------------------------------------------------------
+Method    : GET
+Called Url: /api/v1.2/message/id/500
+Headers   :
+{
+  "Authorization" : [ "Basic fake" ],
+  "Cache-Control" : [ "no-cache" ]
+}
+Body      :
+null
+EXAMPLE RESPONSE
+--------------------------------------------------------------------------------
+{
+  "data" : [ {
+    "displayNumber" : "500",
+    "encodedCaseDisposition" : 27,
+    "uuid" : "uuid-1",
+    "createDate" : 0,
+    "responsePortalLink" : "/portal/message/500",
+    "primaryMessage" : {
+      "conversationDisplayId" : "500",
+      "network" : "twitter",
+      "networkInstance" : "twitter",
+      "receiveDate" : 0,
+      "publishDate" : 0,
+      "tags" : [ ],
+      "private" : true
+    },
+    "messages" : [ {
+      "conversationDisplayId" : "500",
+      "network" : "twitter",
+      "networkInstance" : "twitter",
+      "receiveDate" : 0,
+      "publishDate" : 0,
+      "tags" : [ ],
+      "private" : true
+    } ],
+    "tags" : [ {
+      "creator" : {
+        "type" : "BOT"
+      },
+      "tagId" : "34",
+      "uuid" : "uuid2"
+    } ],
+    "priority" : 4,
+    "lswPermalink" : "/console/bot/500",
+    "totalResponses" : 2,
+    "hasResponse" : false,
+    "status" : "IN_PROGRESS"
+  } ]
+}
+
+

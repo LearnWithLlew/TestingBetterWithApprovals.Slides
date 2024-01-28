@@ -1,0 +1,33 @@
+Chatbot conversations
+
+# Scenario 1: [hi]
+***** Conversation 1 *****
+[Customer]: hi
+[     Bot]: Hi there! I'm your virtual assistant.
+[     Bot]: What would you like to do today?
+
+# Scenario 2: [hi, hi]
+***** Conversation 1 *****
+[Customer]: hi
+[     Bot]: Hi there! I'm your virtual assistant.
+[     Bot]: What would you like to do today?
+[Customer]: hi
+[     Bot]: Hmmm, tell me a little more so I can help you.
+
+What would you like to do today?
+
+# Scenario 3: [hi, hi, hi]
+***** Conversation 1 *****
+[Customer]: hi
+[     Bot]: Hi there! I'm your virtual assistant.
+[     Bot]: What would you like to do today?
+[Customer]: hi
+[     Bot]: Hmmm, tell me a little more so I can help you.
+
+What would you like to do today?
+[Customer]: hi
+[     Bot]: Let me try to help you.
+[     Bot]: Are you currently a customer?
+[        ]:   1) Yes, I'm a customer
+[        ]:   2) No, I'm not
+
