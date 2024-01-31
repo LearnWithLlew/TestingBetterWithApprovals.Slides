@@ -1,9 +1,7 @@
 package org.learnwithllew;
 
-import javax.sound.midi.MidiFileFormat;
 import java.util.List;
 
-import java.util.List;
 import java.util.UUID;
 
 public class EventNotification {

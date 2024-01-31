@@ -1,6 +1,6 @@
 package org.learnwithllew;
 
-public class BotNotificationHandler {
+public class Bot {
     public void handle(EventNotification message) {
 
     }

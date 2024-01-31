@@ -18,10 +18,10 @@ public class A1Test {
                 new Property("accountId", "1234567"),
                 new Property("code", "411")))
             .events(List.of(new MessageEvent(System.currentTimeMillis(), "0", "hi"))).build();
-        BotNotificationHandler notificationHandler = new BotNotificationHandler();
-        BotOutboundChannel botOutboundChannel = new BotOutboundChannel();
+        Bot bot = new Bot();
+        BotOutput botOutboundChannel = new BotOutput();
         // when
-        notificationHandler.handle(message);
+        bot.handle(message);
         // then
         BotAction botActions = botOutboundChannel.read(message.getConversationId());
         assertThat(botActions.getCommands())

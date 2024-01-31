@@ -4,12 +4,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class BotOutboundChannel {
+public class BotOutput {
     // In-memory storage for BotActions keyed by conversationId
     private Map<String, BotAction> outboundMessages = new HashMap<>();
 
 
-    public  BotOutboundChannel() {
+    public BotOutput() {
         outboundMessages.put("Hi", new BotAction(List.of(
             new SendPlainMessageCommand("Hi there! I'm your virtual assistant."),
             new SendPlainMessageCommand("What would you like to do today?")
