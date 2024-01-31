@@ -19,11 +19,11 @@ public class A1Test {
                 new Property("code", "411")))
             .events(List.of(new MessageEvent(System.currentTimeMillis(), "0", "hi"))).build();
         Bot bot = new Bot();
-        BotOutput botOutboundChannel = new BotOutput();
+        BotOutput output = new BotOutput();
         // when
         bot.handle(message);
         // then
-        BotAction botActions = botOutboundChannel.read(message.getConversationId());
+        BotAction botActions = output.read(message.getConversationId());
         assertThat(botActions.getCommands())
             .containsExactly(
                 new SendPlainMessageCommand("Hi there! I'm your virtual assistant."),
