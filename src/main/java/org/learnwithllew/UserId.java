@@ -1,21 +1,42 @@
 package org.learnwithllew;
 
-import java.nio.channels.FileLock;
-
 public class UserId {
-    public static UserId builder() {
-        return null;
+    private final Channel channel;
+    private final String channelId;
+
+    // Private constructor
+    private UserId(Channel channel, String channelId) {
+        this.channel = channel;
+        this.channelId = channelId;
     }
 
-    public UserId channel(Channel channel) {
-        return null;
+    // Getters
+    public Channel getChannel() {
+        return channel;
     }
 
-    public UserId channelId(String string) {
-        return null;
+    public String getChannelId() {
+        return channelId;
     }
 
-    public UserId build() {
-        return null;
+    // Builder class
+    public static class Builder {
+        private Channel channel;
+        private String channelId;
+
+        public Builder channel(Channel channel) {
+            this.channel = channel;
+            return this;
+        }
+
+        public Builder id(String channelId) {
+            this.channelId = channelId;
+            return this;
+        }
+
+        public UserId build() {
+            return new UserId(channel, channelId);
+        }
     }
 }
+

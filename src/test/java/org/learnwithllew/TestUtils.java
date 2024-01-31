@@ -1,7 +1,7 @@
 package org.learnwithllew;
 
 public class TestUtils {
-    public static EventNotification eventNotification() {
-        return null;
+    public static EventNotification.Builder eventNotification() {
+        return new EventNotification.Builder();
     }
 }

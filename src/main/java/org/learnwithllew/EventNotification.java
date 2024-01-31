@@ -3,24 +3,66 @@ package org.learnwithllew;
 import javax.sound.midi.MidiFileFormat;
 import java.util.List;
 
+import java.util.List;
+import java.util.UUID;
+
 public class EventNotification {
-    public EventNotification userId(UserId build) {
-        return null;
+    private UserId userId;
+    private List<Property> properties;
+    private List<MessageEvent> events;
+    private String conversationId;
+
+    // Private constructor
+    private EventNotification(UserId userId, List<Property> properties, List<MessageEvent> events, String conversationId) {
+        this.userId = userId;
+        this.properties = properties;
+        this.events = events;
+        this.conversationId = conversationId;
     }
 
-    public EventNotification properties(List<Property> properties) {
-        return null;
+    // Getters
+    public UserId getUserId() {
+        return userId;
     }
 
-    public EventNotification events(List<MessageEvent> events) {
-        return null;
+    public List<Property> getProperties() {
+        return properties;
+    }
+
+    public List<MessageEvent> getEvents() {
+        return events;
     }
 
     public String getConversationId() {
-        return null;
+        return conversationId;
     }
 
-    public EventNotification build() {
-        return null;
+    // Builder class
+    public static class Builder {
+        private UserId userId;
+        private List<Property> properties;
+        private List<MessageEvent> events;
+        private String conversationId;
+
+        public Builder userId(UserId userId) {
+            this.userId = userId;
+            return this;
+        }
+
+        public Builder properties(List<Property> properties) {
+            this.properties = properties;
+            return this;
+        }
+
+        public Builder events(List<MessageEvent> events) {
+            this.events = events;
+            return this;
+        }
+
+        public EventNotification build() {
+            this.conversationId = UUID.randomUUID().toString(); // Generate a random conversation ID
+            return new EventNotification(userId, properties, events, conversationId);
+        }
     }
 }
+

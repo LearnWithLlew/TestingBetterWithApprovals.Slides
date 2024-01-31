@@ -13,7 +13,7 @@ public class A1Test {
     void botIntroducesItselfAndClarifiesIntent() {
         // given
         EventNotification message = TestUtils.eventNotification()
-            .userId(UserId.builder().channel(Channel.TEXT).channelId(UUID.randomUUID().toString()).build())
+            .userId(new UserId.Builder().channel(Channel.TEXT).id(UUID.randomUUID().toString()).build())
             .properties(List.of(
                 new Property("accountId", "1234567"),
                 new Property("code", "411")))
