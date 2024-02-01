@@ -53,6 +53,11 @@ public class EventNotification {
         private List<Property> properties;
         private Queryable<MessageEvent> events;
 
+        public Builder conversationId(String conversationId) {
+            this.conversationId = conversationId;
+            return this;
+        }
+
         public Builder userId(UserId userId) {
             this.userId = userId;
             return this;
@@ -69,7 +74,6 @@ public class EventNotification {
         }
 
         public EventNotification build() {
-            this.conversationId = UUID.randomUUID().toString();
             return new EventNotification(userId, properties, events, conversationId);
         }
     }
