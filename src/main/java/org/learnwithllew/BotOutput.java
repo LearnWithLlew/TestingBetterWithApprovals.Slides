@@ -8,7 +8,7 @@ public class BotOutput {
     private Map<String, BotAction> outboundMessages = new HashMap<>();
 
     public BotOutput() {
-        outboundMessages.put("Hi", new BotAction(List.of(
+        outboundMessages.put("hi", new BotAction(List.of(
             new SendPlainMessageCommand("Hi there! I'm your virtual assistant."),
             new SendPlainMessageCommand("What would you like to do today?")
         )));
@@ -19,7 +19,7 @@ public class BotOutput {
     }
 
     public BotAction read(String conversationId) {
-        return outboundMessages.get("Hi");
+        return outboundMessages.get(EventNotification.getByConversationId(conversationId).getConversations());
     }
 }
 

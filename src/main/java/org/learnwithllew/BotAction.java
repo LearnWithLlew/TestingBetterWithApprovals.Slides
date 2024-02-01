@@ -6,7 +6,6 @@ public class BotAction {
     private final List<Command> commands;
 
     public BotAction(List<Command> commands) {
-
         this.commands = commands;
     }
 

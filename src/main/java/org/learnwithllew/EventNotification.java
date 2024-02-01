@@ -1,21 +1,27 @@
 package org.learnwithllew;
 
-import java.util.List;
+import org.lambda.query.Queryable;
 
+import java.util.List;
 import java.util.UUID;
 
 public class EventNotification {
+    public static final Queryable<EventNotification> conversations = new Queryable<>(EventNotification.class);
+    private String conversationId;
     private UserId userId;
     private List<Property> properties;
-    private List<MessageEvent> events;
-    private String conversationId;
+    private Queryable<MessageEvent> events;
 
-    // Private constructor
-    private EventNotification(UserId userId, List<Property> properties, List<MessageEvent> events, String conversationId) {
+    private EventNotification(UserId userId, List<Property> properties, Queryable<MessageEvent> events, String conversationId) {
         this.userId = userId;
         this.properties = properties;
         this.events = events;
         this.conversationId = conversationId;
+        conversations.add(this);
+    }
+
+    public static EventNotification getByConversationId(String conversationId) {
+        return conversations.first(e -> e.conversationId.equals(conversationId));
     }
 
     // Getters
@@ -35,12 +41,17 @@ public class EventNotification {
         return conversationId;
     }
 
+    public String getConversations() {
+        String conversation = events.select(e -> e.getMessage()).join(", ");
+        return conversation;
+    }
+
     // Builder class
     public static class Builder {
+        private String conversationId;
         private UserId userId;
         private List<Property> properties;
-        private List<MessageEvent> events;
-        private String conversationId;
+        private Queryable<MessageEvent> events;
 
         public Builder userId(UserId userId) {
             this.userId = userId;
@@ -53,12 +64,12 @@ public class EventNotification {
         }
 
         public Builder events(List<MessageEvent> events) {
-            this.events = events;
+            this.events = Queryable.as(events);
             return this;
         }
 
         public EventNotification build() {
-            this.conversationId = UUID.randomUUID().toString(); // Generate a random conversation ID
+            this.conversationId = UUID.randomUUID().toString();
             return new EventNotification(userId, properties, events, conversationId);
         }
     }
