@@ -24,10 +24,10 @@ public class A3Test {
             conversation("pay bill", "Yes, I'm a customer")
                 .and("pay bill"),
             conversation("pay bill", "No, I'm not")
-                .and("pay bill")
+                .and("pay bill"),
 
-//            conversation("talk to an operator"),
-//
+            conversation("talk to an operator")
+
 //            conversation("oh hi there, how are you doing"),
 //            conversation("walk my dog", "Yes, I'm a customer"),
 //            conversation("pay bill")

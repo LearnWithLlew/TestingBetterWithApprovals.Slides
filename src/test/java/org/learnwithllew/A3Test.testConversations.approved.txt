@@ -156,3 +156,12 @@ What would you like to do today?
 [     Bot]: Let me try to help you.
 [     Bot]: transfers to 'operator'
 
+# Scenario 13: [talk to an operator]
+***** Conversation 1 *****
+[Customer]: talk to an operator
+[     Bot]: Hi there! I'm your virtual assistant.
+[     Bot]: Let me try to help you.
+[     Bot]: Are you a customer?
+[        ]:   1) Yes, I'm a customer
+[        ]:   2) No, I'm not
+

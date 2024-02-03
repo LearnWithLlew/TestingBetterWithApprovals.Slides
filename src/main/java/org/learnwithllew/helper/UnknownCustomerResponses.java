@@ -82,6 +82,14 @@ public class UnknownCustomerResponses extends HardcodedBotResponses {
             new BotAction(List.of(
                 TRANSFER_TO_HUMAN))
         );
+
+        knownResponses.insert(
+            List.of("talk to an operator"),
+            new BotAction(List.of(
+                HI_I_AM_BOT,
+                LET_ME_HELP_YOU,
+                ARE_YOU_A_CUSTOMER_QUERY))
+        );
     }
 
     public BotAction search(List<String> messagesSoFar) {
