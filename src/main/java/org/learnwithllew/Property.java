@@ -1,6 +1,4 @@
 package org.learnwithllew;
 
-public class Property {
-    public Property(String accountId, String number) {
-    }
+public record Property(String name, String value) {
 }
