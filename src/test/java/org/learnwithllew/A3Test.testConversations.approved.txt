@@ -91,3 +91,35 @@ What would you like to do today?
 [        ]:   1) Yes, I'm a customer
 [        ]:   2) No, I'm not
 
+# Scenario 9: [pay bill, I like swimming]
+***** Conversation 1 *****
+[Customer]: pay bill
+[     Bot]: Hi there! I'm your virtual assistant.
+[     Bot]: Let me try to help you.
+[     Bot]: Are you a customer?
+[        ]:   1) Yes, I'm a customer
+[        ]:   2) No, I'm not
+[Customer]: I like swimming
+[     Bot]: I'd be happy to help you with this, But first, I need to know: are you a customer?
+[        ]:   1) Yes, I'm a customer
+[        ]:   2) No, I'm not
+
+# Scenario 10: [pay bill, I like coffee, I like tea, no]
+***** Conversation 1 *****
+[Customer]: pay bill
+[     Bot]: Hi there! I'm your virtual assistant.
+[     Bot]: Let me try to help you.
+[     Bot]: Are you a customer?
+[        ]:   1) Yes, I'm a customer
+[        ]:   2) No, I'm not
+[Customer]: I like coffee
+[     Bot]: I'd be happy to help you with this, But first, I need to know: are you a customer?
+[        ]:   1) Yes, I'm a customer
+[        ]:   2) No, I'm not
+[Customer]: I like tea
+[     Bot]: I'd be happy to help you with this, But first, I need to know: are you a customer?
+[        ]:   1) Yes, I'm a customer
+[        ]:   2) No, I'm not
+[Customer]: no
+[     Bot]: transfers to 'operator'
+
