@@ -29,12 +29,24 @@ public class Bot {
             new BotAction(List.of(
                 new SendPlainMessageCommand("Let me try to help you."),
                 new SendQuestionCommand("Are you a customer?", "Yes, I'm a customer", "No, I'm not"))));
+        hardcodedResponses.insert(
+            List.of("hi", "pay bill"),
+            new BotAction(List.of(
+                new SendPlainMessageCommand("Let me try to help you."),
+                new SendQuestionCommand("Are you a customer?", "Yes, I'm a customer", "No, I'm not"))));
+        hardcodedResponses.insert(
+            List.of("hi", "pay bill", "Yes, I'm a customer"),
+            new BotAction(List.of(
+                new TransferConversationCommand("self_service"))));
     }
 
     public void receive(EventNotification event) {
         recordMessage(event);
         List<String> messagesSoFar = receivedMessages.get(event.getConversationId());
         BotAction response = hardcodedResponses.search(messagesSoFar);
+        if (response == null) {
+            throw new RuntimeException("Not implemented. Bot does not have a reaction to a given chain of messages: " + messagesSoFar + ". \nConsider adding in Bot.java constructor");
+        }
         output.send(event.getConversationId(), response);
     }
 

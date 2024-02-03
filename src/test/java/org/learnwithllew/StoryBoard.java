@@ -22,7 +22,7 @@ public class StoryBoard {
         } else if (command instanceof SendQuestionCommand questionCommand) {
             return prettyPrint(questionCommand);
         } else if (command instanceof TransferConversationCommand transferCommand) {
-            return String.format("[     Bot]: transfers to destination '%s'\n", transferCommand.destination());
+            return String.format("[     Bot]: transfers to '%s'\n", transferCommand.destination());
         } else {
             return String.format("[     Bot]: %s\n", command);
         }

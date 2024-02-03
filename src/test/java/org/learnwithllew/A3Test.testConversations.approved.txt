@@ -32,3 +32,27 @@ What would you like to do today?
 [        ]:   1) Yes, I'm a customer
 [        ]:   2) No, I'm not
 
+# Scenario 4: [hi, pay bill]
+***** Conversation 1 *****
+[Customer]: hi
+[     Bot]: Hi there! I'm your virtual assistant.
+[     Bot]: What would you like to do today?
+[Customer]: pay bill
+[     Bot]: Let me try to help you.
+[     Bot]: Are you a customer?
+[        ]:   1) Yes, I'm a customer
+[        ]:   2) No, I'm not
+
+# Scenario 5: [hi, pay bill, Yes, I'm a customer]
+***** Conversation 1 *****
+[Customer]: hi
+[     Bot]: Hi there! I'm your virtual assistant.
+[     Bot]: What would you like to do today?
+[Customer]: pay bill
+[     Bot]: Let me try to help you.
+[     Bot]: Are you a customer?
+[        ]:   1) Yes, I'm a customer
+[        ]:   2) No, I'm not
+[Customer]: Yes, I'm a customer
+[     Bot]: transfers to 'self_service'
+

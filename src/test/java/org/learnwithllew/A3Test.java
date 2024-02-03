@@ -13,9 +13,9 @@ public class A3Test {
         var conversations = List.of(
             conversation("hi"),
             conversation("hi", "hi"),
-            conversation("hi", "hi", "hi")
-//            conversation("hi", "pay bill"),
-//            conversation("hi", "pay bill", "Yes, I'm a customer"),
+            conversation("hi", "hi", "hi"),
+            conversation("hi", "pay bill"),
+            conversation("hi", "pay bill", "Yes, I'm a customer")
 //            conversation("hi", "pay bill", "no"),
 //            conversation("hi", "talk to an operator", "Yes, I'm a customer"),
 //
