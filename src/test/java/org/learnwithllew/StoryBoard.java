@@ -19,11 +19,27 @@ public class StoryBoard {
     private static String printCommand(Command command) {
         if (command instanceof SendPlainMessageCommand plainMessage) {
             return String.format("[     Bot]: %s\n", plainMessage.message());
+        } else if (command instanceof SendQuestionCommand questionCommand) {
+            return prettyPrint(questionCommand);
         } else if (command instanceof TransferConversationCommand transferCommand) {
             return String.format("[     Bot]: transfers to destination '%s'\n", transferCommand.destination());
         } else {
             return String.format("[     Bot]: %s\n", command);
         }
     }
+
+    private static String prettyPrint(SendQuestionCommand command) {
+        String output = "";
+        String header = "[     Bot]: ";
+        String blank = "[        ]: ";
+        output = header + command.question() + "\n";
+        int i = 1;
+        for (String answer : command.answers()) {
+            output += String.format("%s  %s) %s\n", blank, i++, answer);
+        }
+
+        return output;
+    }
+
 
 }

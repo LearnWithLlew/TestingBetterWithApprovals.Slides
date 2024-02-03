@@ -11,9 +11,9 @@ public class A3Test {
     @Test
     void testConversations() {
         var conversations = List.of(
-            conversation("hi")
-//            conversation("hi", "hi"),
-//            conversation("hi", "hi", "hi"),
+            conversation("hi"),
+            conversation("hi", "hi"),
+            conversation("hi", "hi", "hi")
 //            conversation("hi", "pay bill"),
 //            conversation("hi", "pay bill", "Yes, I'm a customer"),
 //            conversation("hi", "pay bill", "no"),

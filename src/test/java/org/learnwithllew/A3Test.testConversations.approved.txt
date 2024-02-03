@@ -1,5 +1,6 @@
 Chatbot conversations
 
+
 # Scenario 1: [hi]
 ***** Conversation 1 *****
 [Customer]: hi
@@ -27,7 +28,7 @@ What would you like to do today?
 What would you like to do today?
 [Customer]: hi
 [     Bot]: Let me try to help you.
-[     Bot]: Are you currently a customer?
+[     Bot]: Are you a customer?
 [        ]:   1) Yes, I'm a customer
 [        ]:   2) No, I'm not
 
