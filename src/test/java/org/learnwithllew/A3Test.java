@@ -17,9 +17,8 @@ public class A3Test {
             conversation("hi", "pay bill"),
             conversation("hi", "pay bill", "Yes, I'm a customer"),
             conversation("hi", "pay bill", "no"),
-            conversation("hi", "talk to an operator", "Yes, I'm a customer")
-//
-//            conversation("pay bill"),
+            conversation("hi", "talk to an operator", "Yes, I'm a customer"),
+            conversation("pay bill")
 //            conversation("pay bill", "I like swimming"),
 //            conversation("pay bill", "i like coffee", "i like tea", "no"),
 //            conversation("pay bill", "Yes, I'm a customer")
