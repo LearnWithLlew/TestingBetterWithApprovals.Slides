@@ -1,4 +1,4 @@
 package org.learnwithllew;
 
-public class Command {
+public interface Command {
 }
