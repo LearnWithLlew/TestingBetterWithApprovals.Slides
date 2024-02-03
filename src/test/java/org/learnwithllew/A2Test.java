@@ -30,7 +30,7 @@ public class A2Test {
         BotOutput output = new BotOutput();
         Bot bot = new Bot(output);
         // when
-        bot.handle(message);
+        bot.receive(message);
         // then
         BotAction botActions = output.read(message.getConversationId());
         var actual = botActions.getCommandLog1();

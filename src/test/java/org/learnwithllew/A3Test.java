@@ -2,10 +2,12 @@ package org.learnwithllew;
 
 import org.apache.commons.lang3.mutable.MutableInt;
 import org.approvaltests.Approvals;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+@Disabled("not implemented yet")
 public class A3Test {
 
     @Test

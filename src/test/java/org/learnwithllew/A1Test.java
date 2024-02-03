@@ -21,7 +21,7 @@ public class A1Test {
         BotOutput output = new BotOutput();
         Bot bot = new Bot(output);
         // when
-        bot.handle(message);
+        bot.receive(message);
         // then
         BotAction botActions = output.read(message.getConversationId());
         assertThat(botActions.commands())
