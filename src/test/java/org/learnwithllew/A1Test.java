@@ -18,8 +18,8 @@ public class A1Test {
                 new Property("accountId", "1234567"),
                 new Property("code", "411")))
             .events(List.of(new MessageEvent(System.currentTimeMillis(), "0", "hi"))).build();
-        Bot bot = new Bot();
         BotOutput output = new BotOutput();
+        Bot bot = new Bot(output);
         // when
         bot.handle(message);
         // then
