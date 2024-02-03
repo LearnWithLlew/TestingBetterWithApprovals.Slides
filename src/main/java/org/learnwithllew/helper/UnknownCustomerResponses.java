@@ -90,6 +90,25 @@ public class UnknownCustomerResponses extends HardcodedBotResponses {
                 LET_ME_HELP_YOU,
                 ARE_YOU_A_CUSTOMER_QUERY))
         );
+        knownResponses.insert(
+            List.of("oh hi there, how are you doing"),
+            new BotAction(List.of(
+                HI_I_AM_BOT,
+                LET_ME_HELP_YOU,
+                ARE_YOU_A_CUSTOMER_QUERY))
+        );
+        knownResponses.insert(
+            List.of("walk my dog"),
+            new BotAction(List.of(
+                HI_I_AM_BOT,
+                LET_ME_HELP_YOU,
+                ARE_YOU_A_CUSTOMER_QUERY))
+        );
+        knownResponses.insert(
+            List.of("walk my dog", "Yes, I'm a customer"),
+            new BotAction(List.of(
+                TRANSFER_TO_HUMAN))
+        );
     }
 
     public BotAction search(List<String> messagesSoFar) {

@@ -165,3 +165,23 @@ What would you like to do today?
 [        ]:   1) Yes, I'm a customer
 [        ]:   2) No, I'm not
 
+# Scenario 14: [oh hi there, how are you doing]
+***** Conversation 1 *****
+[Customer]: oh hi there, how are you doing
+[     Bot]: Hi there! I'm your virtual assistant.
+[     Bot]: Let me try to help you.
+[     Bot]: Are you a customer?
+[        ]:   1) Yes, I'm a customer
+[        ]:   2) No, I'm not
+
+# Scenario 15: [walk my dog, Yes, I'm a customer]
+***** Conversation 1 *****
+[Customer]: walk my dog
+[     Bot]: Hi there! I'm your virtual assistant.
+[     Bot]: Let me try to help you.
+[     Bot]: Are you a customer?
+[        ]:   1) Yes, I'm a customer
+[        ]:   2) No, I'm not
+[Customer]: Yes, I'm a customer
+[     Bot]: transfers to 'operator'
+

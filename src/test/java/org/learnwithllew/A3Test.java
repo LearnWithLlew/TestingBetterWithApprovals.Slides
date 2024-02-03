@@ -26,10 +26,9 @@ public class A3Test {
             conversation("pay bill", "No, I'm not")
                 .and("pay bill"),
 
-            conversation("talk to an operator")
-
-//            conversation("oh hi there, how are you doing"),
-//            conversation("walk my dog", "Yes, I'm a customer"),
+            conversation("talk to an operator"),
+            conversation("oh hi there, how are you doing"),
+            conversation("walk my dog", "Yes, I'm a customer")
 //            conversation("pay bill")
 //                .withCustomer(CustomerType.EXISTING)
 //                .duringWorkHours()
