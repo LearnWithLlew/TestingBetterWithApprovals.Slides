@@ -2,8 +2,6 @@ package org.learnwithllew.helper;
 
 import org.learnwithllew.BotAction;
 import org.learnwithllew.SendPlainMessageCommand;
-import org.learnwithllew.SendQuestionCommand;
-import org.learnwithllew.TransferConversationCommand;
 
 import java.util.List;
 
@@ -52,7 +50,7 @@ public class UnknownCustomerResponses extends HardcodedBotResponses {
                 HI_I_AM_BOT,
                 LET_ME_HELP_YOU,
                 ARE_YOU_A_CUSTOMER_QUERY))
-            );
+        );
         knownResponses.insert(
             List.of("pay bill", "I like swimming"),
             new BotAction(List.of(
@@ -67,10 +65,10 @@ public class UnknownCustomerResponses extends HardcodedBotResponses {
             List.of("pay bill", "I like coffee", "I like tea"),
             new BotAction(List.of(
                 ACKNOWLEDGE_INTENT_AND_ARE_YOU_A_CUSTOMER_QUERY)));
-            knownResponses.insert(
-                List.of("pay bill", "I like coffee", "I like tea", "no"),
-                new BotAction(List.of(
-                    TRANSFER_TO_HUMAN))
+        knownResponses.insert(
+            List.of("pay bill", "I like coffee", "I like tea", "no"),
+            new BotAction(List.of(
+                TRANSFER_TO_HUMAN))
         );
         knownResponses.insert(
             List.of("pay bill", "Yes, I'm a customer"),
