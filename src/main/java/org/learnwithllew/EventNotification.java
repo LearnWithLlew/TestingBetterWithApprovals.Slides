@@ -42,7 +42,7 @@ public class EventNotification {
     }
 
     public String getConversations() {
-        String conversation = events.select(e -> e.getMessage()).join(", ");
+        String conversation = events.select(e -> e.message()).join(", ");
         return conversation;
     }
 
