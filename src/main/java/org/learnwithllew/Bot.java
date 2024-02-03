@@ -21,7 +21,9 @@ public class Bot {
         List<String> messagesSoFar = receivedMessages.get(event.getConversationId());
         BotAction response = hardcodedResponses.search(messagesSoFar);
         if (response == null) {
-            throw new RuntimeException("Not implemented. Bot does not have a reaction to a given chain of messages: " + messagesSoFar + ". \nConsider adding in Bot.java constructor");
+            throw new RuntimeException("Not implemented. Bot does not have a reaction to a given chain of messages: " +
+                messagesSoFar +
+                ". \nConsider adding in HardcodedBotResponses.java");
         }
         output.send(event.getConversationId(), response);
     }

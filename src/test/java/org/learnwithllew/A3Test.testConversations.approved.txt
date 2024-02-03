@@ -67,5 +67,18 @@ What would you like to do today?
 [        ]:   1) Yes, I'm a customer
 [        ]:   2) No, I'm not
 [Customer]: no
-[     Bot]: transfers to 'human_agent'
+[     Bot]: transfers to 'operator'
+
+# Scenario 7: [hi, talk to an operator, Yes, I'm a customer]
+***** Conversation 1 *****
+[Customer]: hi
+[     Bot]: Hi there! I'm your virtual assistant.
+[     Bot]: What would you like to do today?
+[Customer]: talk to an operator
+[     Bot]: Let me try to help you.
+[     Bot]: Are you a customer?
+[        ]:   1) Yes, I'm a customer
+[        ]:   2) No, I'm not
+[Customer]: Yes, I'm a customer
+[     Bot]: transfers to 'operator'
 
