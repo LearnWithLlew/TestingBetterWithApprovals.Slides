@@ -20,12 +20,12 @@ public class A3Test {
             conversation("hi", "talk to an operator", "Yes, I'm a customer"),
             conversation("pay bill"),
             conversation("pay bill", "I like swimming"),
-            conversation("pay bill", "I like coffee", "I like tea", "no")
-//            conversation("pay bill", "Yes, I'm a customer")
-//                .and("pay bill"),
-//            conversation("pay bill", "No, I'm not")
-//                .and("pay bill"),
-//
+            conversation("pay bill", "I like coffee", "I like tea", "no"),
+            conversation("pay bill", "Yes, I'm a customer")
+                .and("pay bill"),
+            conversation("pay bill", "No, I'm not")
+                .and("pay bill")
+
 //            conversation("talk to an operator"),
 //
 //            conversation("oh hi there, how are you doing"),

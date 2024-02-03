@@ -2,11 +2,15 @@ package org.learnwithllew;
 
 public class StoryBoard {
 
+    public static int conversationId = 0;
+
     public static String create(Bot bot, BotOutput botOutput, String... messages) {
+        int currentConversationId = conversationId++;
+
         StringBuilder board = new StringBuilder();
         for (int i = 0; i < messages.length; i++) {
             board.append(String.format("[Customer]: %s\n", messages[i]));
-            EventNotification initialMessage = TestUtils.messageFromCustomer("" + i, messages[i]).build();
+            EventNotification initialMessage = TestUtils.messageFromCustomer(currentConversationId, "" + i, messages[i]).build();
             bot.receive(initialMessage);
             BotAction actions = botOutput.read(initialMessage.getConversationId());
             for (Command command : actions.commands()) {

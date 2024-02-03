@@ -14,9 +14,15 @@ public class TestUtils {
             .properties(List.of());
     }
 
-    public static EventNotification.Builder messageFromCustomer(String id, String message) {
+    public static EventNotification.Builder messageFromCustomer(int conversationId, String messageId, String message) {
         return eventNotification()
-            .events(List.of(new MessageEvent(System.currentTimeMillis(), id, message)));
+            .events(List.of(new MessageEvent(System.currentTimeMillis(), messageId, message)))
+            .conversationId(String.valueOf(conversationId));
+    }
+
+    public static EventNotification.Builder messageFromCustomer(String messageId, String message) {
+        return eventNotification()
+            .events(List.of(new MessageEvent(System.currentTimeMillis(), messageId, message)));
     }
 
     public static UserId.Builder userId() {
