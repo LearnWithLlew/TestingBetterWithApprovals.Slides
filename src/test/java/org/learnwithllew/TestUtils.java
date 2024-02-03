@@ -14,6 +14,11 @@ public class TestUtils {
             .properties(List.of());
     }
 
+    public static EventNotification.Builder messageFromCustomer(String id, String message) {
+        return eventNotification()
+            .events(List.of(new MessageEvent(System.currentTimeMillis(), id, message)));
+    }
+
     public static UserId.Builder userId() {
         return new UserId.Builder()
             .id(UUID.randomUUID().toString())

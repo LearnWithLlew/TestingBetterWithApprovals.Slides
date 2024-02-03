@@ -4,9 +4,6 @@ import org.approvaltests.Approvals;
 import org.approvaltests.core.Options;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-import java.util.UUID;
-
 public class A2Test {
 
     @Test
@@ -19,22 +16,10 @@ public class A2Test {
         verifyConversation(expected, "hi");
     }
 
-    private void verifyConversation(String expected, String textMessages) {
-        // given
-        EventNotification message = TestUtils.eventNotification()
-            .userId(new UserId.Builder().channel(Channel.TEXT).id(UUID.randomUUID().toString()).build())
-            .properties(List.of(
-                new Property("accountId", "1234567"),
-                new Property("code", "411")))
-            .events(List.of(new MessageEvent(System.currentTimeMillis(), "0", textMessages))).build();
+    private void verifyConversation(String expected, String... messages) {
         BotOutput output = new BotOutput();
         Bot bot = new Bot(output);
-        // when
-        bot.receive(message);
-        // then
-        BotAction botActions = output.read(message.getConversationId());
-        var actual = botActions.getCommandLog1();
-        Approvals.verify(actual, new Options().inline(expected));
-
+        var storyBoard = StoryBoard.create(bot, output, messages);
+        Approvals.verify(storyBoard, new Options().inline(expected));
     }
 }

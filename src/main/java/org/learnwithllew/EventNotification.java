@@ -3,28 +3,20 @@ package org.learnwithllew;
 import org.lambda.query.Queryable;
 
 import java.util.List;
-import java.util.UUID;
 
 public class EventNotification {
-    public static final Queryable<EventNotification> conversations = new Queryable<>(EventNotification.class);
-    private String conversationId;
-    private UserId userId;
-    private List<Property> properties;
-    private Queryable<MessageEvent> events;
+    private final String conversationId;
+    private final UserId userId;
+    private final List<Property> properties;
+    private final Queryable<MessageEvent> events;
 
     private EventNotification(UserId userId, List<Property> properties, Queryable<MessageEvent> events, String conversationId) {
         this.userId = userId;
         this.properties = properties;
         this.events = events;
         this.conversationId = conversationId;
-        conversations.add(this);
     }
 
-    public static EventNotification getByConversationId(String conversationId) {
-        return conversations.first(e -> e.conversationId.equals(conversationId));
-    }
-
-    // Getters
     public UserId getUserId() {
         return userId;
     }
@@ -41,12 +33,6 @@ public class EventNotification {
         return conversationId;
     }
 
-    public String getConversations() {
-        String conversation = events.select(e -> e.message()).join(", ");
-        return conversation;
-    }
-
-    // Builder class
     public static class Builder {
         private String conversationId;
         private UserId userId;
