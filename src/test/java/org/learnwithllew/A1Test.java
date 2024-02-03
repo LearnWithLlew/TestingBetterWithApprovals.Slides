@@ -24,7 +24,7 @@ public class A1Test {
         bot.handle(message);
         // then
         BotAction botActions = output.read(message.getConversationId());
-        assertThat(botActions.getCommands())
+        assertThat(botActions.commands())
             .containsExactly(
                 new SendPlainMessageCommand("Hi there! I'm your virtual assistant."),
                 new SendPlainMessageCommand("What would you like to do today?")

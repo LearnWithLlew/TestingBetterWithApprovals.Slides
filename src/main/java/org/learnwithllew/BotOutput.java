@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 public class BotOutput {
-    private Map<String, BotAction> outboundMessages = new HashMap<>();
+    private final Map<String, BotAction> outboundMessages = new HashMap<>();
 
     public BotOutput() {
         outboundMessages.put("hi", new BotAction(List.of(
