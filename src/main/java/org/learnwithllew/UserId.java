@@ -1,41 +1,38 @@
 package org.learnwithllew;
 
 public class UserId {
+    private final String id;
     private final Channel channel;
-    private final String channelId;
 
-    // Private constructor
-    private UserId(Channel channel, String channelId) {
+    private UserId(String id, Channel channel) {
         this.channel = channel;
-        this.channelId = channelId;
+        this.id = id;
     }
 
-    // Getters
     public Channel getChannel() {
         return channel;
     }
 
-    public String getChannelId() {
-        return channelId;
+    public String getId() {
+        return id;
     }
 
-    // Builder class
     public static class Builder {
+        private String id;
         private Channel channel;
-        private String channelId;
+
+        public Builder id(String channelId) {
+            this.id = channelId;
+            return this;
+        }
 
         public Builder channel(Channel channel) {
             this.channel = channel;
             return this;
         }
 
-        public Builder id(String channelId) {
-            this.channelId = channelId;
-            return this;
-        }
-
         public UserId build() {
-            return new UserId(channel, channelId);
+            return new UserId(id, channel);
         }
     }
 }
