@@ -12,7 +12,7 @@ public class A2Test {
     }
 
     @Test
-    void testJson() {
+    void testPayBill() {
         verifyConversation("hi", "pay bill");
     }
 
