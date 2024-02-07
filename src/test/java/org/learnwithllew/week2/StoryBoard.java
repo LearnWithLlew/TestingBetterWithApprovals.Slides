@@ -26,7 +26,7 @@ public class StoryBoard {
 
     private static String printCommand(Command command) {
         if (command instanceof SendPlainMessageCommand plainMessage) {
-            return String.format("%s %s\n", BOT, plainMessage.message());
+            return print(plainMessage);
         } else if (command instanceof SendQuestionCommand questionCommand) {
             return printJson(questionCommand);
         } else if (command instanceof TransferConversationCommand transferCommand) {
@@ -34,6 +34,19 @@ public class StoryBoard {
         } else {
             return String.format("%s %s\n", BOT, command);
         }
+    }
+
+    private static String print(SendPlainMessageCommand plainMessage) {
+        String[] lines = plainMessage.message().split("\n");
+        String output = "";
+        for (int i = 0; i < lines.length; i++) {
+            if (i == 0) {
+                output += String.format("%s %s\n", BOT, lines[i]);
+            } else {
+                output += String.format("%s %s\n", "  ", lines[i]);
+            }
+        }
+        return output;
     }
 
     private static String printJson(SendQuestionCommand command) {

@@ -1,0 +1,6 @@
+[Customer]: hi
+[Bot]: Hi there! I'm your virtual assistant.
+[Bot]: What would you like to do today?
+[Customer]: hi
+[Bot]: Hmmm, tell me a little more so I can help you.
+   What would you like to do today?

@@ -16,7 +16,7 @@ public class UnknownCustomerResponses extends HardcodedBotResponses {
         knownResponses.insert(
             List.of("hi", "hi"),
             new BotAction(List.of(
-                new SendPlainMessageCommand("Hmmm, tell me a little more so I can help you.\n\nWhat would you like to do today?"))));
+                new SendPlainMessageCommand("Hmmm, tell me a little more so I can help you.\nWhat would you like to do today?"))));
         knownResponses.insert(
             List.of("hi", "hi", "hi"),
             new BotAction(List.of(
