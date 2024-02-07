@@ -3,6 +3,7 @@ package org.learnwithllew;
 import org.approvaltests.Approvals;
 import org.approvaltests.core.Options;
 import org.junit.jupiter.api.Test;
+import org.learnwithllew.week3.StoryBoard;
 
 public class A3Test {
 

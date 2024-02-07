@@ -3,11 +3,13 @@ package org.learnwithllew;
 import org.approvaltests.Approvals;
 import org.approvaltests.core.Options;
 import org.junit.jupiter.api.Test;
+import org.learnwithllew.week2.StoryBoard;
 
-public class A2Test {
+// Full printed story -> whitespace -> json
+public class Week2 {
 
     @Test
-    void moveToApprovals() {
+    void botIntroducesItselfAndClarifiesIntent() {
         verifyConversation("hi");
     }
 
@@ -19,7 +21,7 @@ public class A2Test {
     private void verifyConversation(String... messages) {
         BotOutput output = new BotOutput();
         Bot bot = new Bot(output);
-        var storyBoard = StoryBoard.create(bot, output, true, messages);
+        var storyBoard = StoryBoard.create(bot, output, messages);
         Approvals.verify(storyBoard, new Options());
     }
 }
