@@ -1,8 +1,5 @@
 package org.learnwithllew;
 
-import java.util.List;
-import java.util.Map;
-
 public class StoryBoard {
 
     public static int conversationId = 0;
@@ -25,14 +22,6 @@ public class StoryBoard {
             }
         }
         return board.toString();
-    }
-
-    public static String printCommands(List<Command> commands) {
-        String output = "";
-        for (Command command : commands) {
-            output += printCommand(command, true);
-        }
-        return output;
     }
 
     private static String printCommand(Command command, boolean useOriginalJson) {

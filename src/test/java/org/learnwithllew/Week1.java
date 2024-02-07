@@ -5,9 +5,11 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 import java.util.UUID;
 
+import static org.approvaltests.Approvals.verify;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class A1Test {
+// Lada’s tests -> approval test (of the list) -> better printing
+public class Week1 {
 
     @Test
     void botIntroducesItselfAndClarifiesIntent() {
