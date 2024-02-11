@@ -57,7 +57,8 @@ public class Week1 {
         BotAction secondResponse = output.read(message.getConversationId());
         assertThat(secondResponse.commands())
             .containsExactly(
-                new SendPlainMessageCommand("Hmmm, tell me a little more so I can help you.\n\nWhat would you like to do today?")
+                new SendPlainMessageCommand("Hmmm, tell me a little more so I can help you.\n" +
+                    "What would you like to do today?")
             );
     }
 }

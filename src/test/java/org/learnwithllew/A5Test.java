@@ -25,7 +25,6 @@ public class A5Test {
             [     Bot]: What would you like to do today?
             [Customer]: hi
             [     Bot]: Hmmm, tell me a little more so I can help you.
-            
             What would you like to do today?
             """;
         verifyConversations(expected, "hi", "hi");
@@ -39,7 +38,6 @@ public class A5Test {
             [     Bot]: What would you like to do today?
             [Customer]: hi
             [     Bot]: Hmmm, tell me a little more so I can help you.
-            
             What would you like to do today?
             [Customer]: hi
             [     Bot]: Let me try to help you.
