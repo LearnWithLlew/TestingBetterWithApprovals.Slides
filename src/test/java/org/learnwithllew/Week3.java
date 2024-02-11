@@ -5,7 +5,8 @@ import org.approvaltests.core.Options;
 import org.junit.jupiter.api.Test;
 import org.learnwithllew.week3.StoryBoard;
 
-public class A3Test {
+// Pretty printed json -> inline -> everywhere
+public class Week3 {
 
     @Test
     void testPrettyButtons() {
