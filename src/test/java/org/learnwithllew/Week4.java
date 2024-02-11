@@ -211,11 +211,11 @@ public class Week4 {
     }
 
     private void verifyConversations(String expected, String... messages) {
-        Approvals.verify(playConversation(messages), new Options().inline(expected));
+        Conversations conversations = new Conversations(messages);
+        Approvals.verify(playConversation(conversations), new Options().inline(expected));
     }
 
-    private static String playConversation(String... messages) {
-        Conversations conversations = new Conversations(messages);
+    private static String playConversation(Conversations conversations) {
         BotOutput output = new BotOutput();
         Bot bot = new Bot(output);
         return StoryBoard.create(bot, output, conversations);
