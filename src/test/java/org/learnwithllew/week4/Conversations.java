@@ -1,6 +1,7 @@
-package org.learnwithllew;
+package org.learnwithllew.week4;
 
 import org.lambda.query.Queryable;
+import org.learnwithllew.CustomerType;
 
 import java.util.Arrays;
 

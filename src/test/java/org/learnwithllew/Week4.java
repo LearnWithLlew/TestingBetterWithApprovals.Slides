@@ -3,7 +3,8 @@ package org.learnwithllew;
 import org.approvaltests.Approvals;
 import org.approvaltests.core.Options;
 import org.junit.jupiter.api.Test;
-import org.learnwithllew.week3.StoryBoard;
+import org.learnwithllew.week4.StoryBoard;
+import org.learnwithllew.week4.Conversations;
 
 // everywhere -> single instance -> some can’t convert
 public class Week4 {
@@ -213,9 +214,10 @@ public class Week4 {
         Approvals.verify(playConversation(messages), new Options().inline(expected));
     }
 
-    private static String playConversation(String[] messages) {
+    private static String playConversation(String... messages) {
+        Conversations conversations = new Conversations(messages);
         BotOutput output = new BotOutput();
         Bot bot = new Bot(output);
-        return StoryBoard.create(bot, output, messages);
+        return StoryBoard.create(bot, output, conversations);
     }
 }
