@@ -27,4 +27,9 @@ public class Conversations {
     public Conversations(String... conversations) {
         this.conversations.add(new Conversation(conversations));
     }
+
+    @Override
+    public String toString() {
+        return String.join(", ", conversations.first().messages);
+    }
 }
