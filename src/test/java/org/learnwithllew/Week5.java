@@ -8,7 +8,8 @@ import org.learnwithllew.week5.Conversations;
 
 import java.util.List;
 
-public class A4Test {
+// dual conversations (.and) -> some can’t convert v2 -> setting state
+public class Week5 {
 
     @Test
     void testConversations() {
@@ -24,9 +25,9 @@ public class A4Test {
             conversation("pay bill", "I like swimming"),
             conversation("pay bill", "I like coffee", "I like tea", "no"),
             conversation("pay bill", "Yes, I'm a customer")
-                .and("pay bill"),
+                .thenLater("pay bill"),
             conversation("pay bill", "No, I'm not")
-                .and("pay bill"),
+                .thenLater("pay bill"),
 
             conversation("talk to an operator"),
             conversation("oh hi there, how are you doing"),

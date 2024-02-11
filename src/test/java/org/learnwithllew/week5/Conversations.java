@@ -34,7 +34,7 @@ public class Conversations {
         this.conversations.add(new Conversation(conversations));
     }
 
-    public Conversations and(String... messages) {
+    public Conversations thenLater(String... messages) {
         this.conversations.add(new Conversation(messages));
         return this;
     }
