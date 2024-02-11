@@ -1,8 +1,0 @@
-[Customer]: hi
-[     Bot]: Hi there! I'm your virtual assistant.
-[     Bot]: What would you like to do today?
-[Customer]: pay bill
-[     Bot]: Let me try to help you.
-[     Bot]: Are you a customer?
-[        ]:   1) Yes, I'm a customer
-[        ]:   2) No, I'm not
