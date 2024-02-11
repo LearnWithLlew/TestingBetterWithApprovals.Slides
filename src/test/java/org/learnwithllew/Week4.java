@@ -5,7 +5,8 @@ import org.approvaltests.core.Options;
 import org.junit.jupiter.api.Test;
 import org.learnwithllew.week3.StoryBoard;
 
-public class A5Test {
+// everywhere -> single instance -> some can’t convert
+public class Week4 {
 
     @Test
     void test1() {
@@ -209,9 +210,12 @@ public class A5Test {
     }
 
     private void verifyConversations(String expected, String... messages) {
+        Approvals.verify(playConversation(messages), new Options().inline(expected));
+    }
+
+    private static String playConversation(String[] messages) {
         BotOutput output = new BotOutput();
         Bot bot = new Bot(output);
-        var storyBoard = StoryBoard.create(bot, output, messages);
-        Approvals.verify(storyBoard, new Options().inline(expected));
+        return StoryBoard.create(bot, output, messages);
     }
 }
