@@ -1,0 +1,3 @@
+[Customer]: hi
+[     Bot]: Hi there! I'm your virtual assistant.
+[     Bot]: What would you like to do today?
