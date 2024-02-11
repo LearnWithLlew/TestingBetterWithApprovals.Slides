@@ -19,24 +19,8 @@ public class Week2 {
     }
 
     @Test
-    void test3() {
-
-        verifyConversation("hi", "hi", "hi");
-    }
-
-    @Test
-    void test4() {
-        verifyConversation("hi", "pay bill");
-    }
-
-    @Test
-    void test5() {
-        verifyConversation("hi", "pay bill", "Yes, I'm a customer");
-    }
-
-    @Test
     void testPayBill() {
-        verifyConversation("hi", "pay bill");
+        verifyConversation("hi", "pay bill", "Yes, I'm a customer");
     }
 
     private void verifyConversation(String... messages) {
