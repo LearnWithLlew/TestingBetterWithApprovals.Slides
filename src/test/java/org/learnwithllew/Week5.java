@@ -1,5 +1,6 @@
 package org.learnwithllew;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.mutable.MutableInt;
 import org.approvaltests.Approvals;
 import org.junit.jupiter.api.Test;
@@ -32,27 +33,23 @@ public class Week5 {
             conversation("talk to an operator"),
             conversation("oh hi there, how are you doing"),
             conversation("walk my dog", "Yes, I'm a customer")
-//            conversation("pay bill")
-//                .withCustomer(CustomerType.EXISTING)
-//                .duringWorkHours()
-//                .and("pay bill")
-//                .duringOffHours()
         );
 
-        MutableInt counter = new MutableInt(0);
-        Approvals.verifyAll("Chatbot conversations", conversations, c -> haveConversation(c, counter));
+        Approvals.verifyAll("Chatbot conversations", conversations, c -> haveConversation(c));
     }
 
-    private String haveConversation(Conversations conversations, MutableInt counter) {
-        counter.increment();
+    private String haveConversation(Conversations conversations) {
         BotOutput output = new BotOutput();
         Bot bot = new Bot(output);
 
-        var storyBoard = "# Scenario %s: %s\n".formatted(counter, conversations.printMessages());
+        var separator = "******************************************\n";
+        var storyBoard = "%s* %s%s\n%s".formatted(separator, conversations.printMessages(), StringUtils.leftPad("*", separator.length() - 3 - conversations.printMessages().length()), separator);
         for (int i = 0; i < conversations.conversations.size(); i++) {
             var conversation = conversations.conversations.get(i);
             var messages = conversation.messages;
-            storyBoard += String.format("%s***** Conversation %s *****\n", i == 0 ? "" : "\n", i + 1);
+            if (1 < conversations.conversations.size()) {
+                storyBoard += String.format("%s***** Conversation %s *****\n", i == 0 ? "" : "\n", i + 1);
+            }
             storyBoard += StoryBoard.create(bot, output, messages);
         }
         return storyBoard;
