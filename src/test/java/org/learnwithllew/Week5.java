@@ -1,8 +1,8 @@
 package org.learnwithllew;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.mutable.MutableInt;
 import org.approvaltests.Approvals;
+import org.approvaltests.core.Options;
 import org.junit.jupiter.api.Test;
 import org.learnwithllew.week3.StoryBoard;
 import org.learnwithllew.week5.Conversations;
@@ -36,6 +36,77 @@ public class Week5 {
         );
 
         Approvals.verifyAll("Chatbot conversations", conversations, c -> haveConversation(c));
+    }
+
+    @Test
+    void handleExistingCustomer() {
+        var expected = """
+            ***** Conversation 1 *****
+            [Customer]: pay bill
+            [     Bot]: Hi there! I'm your virtual assistant.
+            [     Bot]: Let me try to help you.
+            [     Bot]: Are you a customer?
+            [        ]:   1) Yes, I'm a customer
+            [        ]:   2) No, I'm not
+            [Customer]: Yes, I'm a customer
+            [     Bot]: transfers to 'self_service'
+            
+            ***** Conversation 2 *****
+            [Customer]: pay bill
+            [     Bot]: Hi there! I'm your virtual assistant.
+            [     Bot]: Let me try to help you.
+            [     Bot]: transfers to 'self_service'
+            """;
+        var conversation1 = conversation("pay bill", "Yes, I'm a customer");
+        var conversation2 = conversation("pay bill");
+
+        BotOutput output = new BotOutput();
+        Bot bot = new Bot(output);
+
+        var messages = conversation1.conversations.first().messages;
+        var storyBoard = "***** Conversation 1 *****\n";
+        storyBoard += StoryBoard.create(bot, output, messages);
+
+        var messages2 = conversation2.conversations.first().messages;
+        storyBoard += "\n***** Conversation 2 *****\n";
+        storyBoard += StoryBoard.create(bot, output, messages2);
+
+        Approvals.verify(storyBoard, new Options().inline(expected));
+    }
+
+    @Test
+    void handleProspect() {
+        var expected = """
+            ***** Conversation 1 *****
+            [Customer]: pay bill
+            [     Bot]: Hi there! I'm your virtual assistant.
+            [     Bot]: Let me try to help you.
+            [     Bot]: Are you a customer?
+            [        ]:   1) Yes, I'm a customer
+            [        ]:   2) No, I'm not
+            [Customer]: No, I'm not
+            [     Bot]: transfers to 'operator'
+            
+            ***** Conversation 2 *****
+            [Customer]: pay bill
+            [     Bot]: Let me try to help you.
+            [     Bot]: transfers to 'operator'
+            """;
+        var conversation1 = conversation("pay bill", "No, I'm not");
+        var conversation2 = conversation("pay bill");
+
+        BotOutput output = new BotOutput();
+        Bot bot = new Bot(output);
+
+        var messages = conversation1.conversations.first().messages;
+        var storyBoard = "***** Conversation 1 *****\n";
+        storyBoard += StoryBoard.create(bot, output, messages);
+
+        var messages2 = conversation2.conversations.first().messages;
+        storyBoard += "\n***** Conversation 2 *****\n";
+        storyBoard += StoryBoard.create(bot, output, messages2);
+
+        Approvals.verify(storyBoard, new Options().inline(expected));
     }
 
     private String haveConversation(Conversations conversations) {
