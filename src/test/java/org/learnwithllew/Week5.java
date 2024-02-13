@@ -20,16 +20,10 @@ public class Week5 {
             conversation("hi", "hi", "hi"),
             conversation("hi", "pay bill"),
             conversation("hi", "pay bill", "Yes, I'm a customer"),
-            conversation("hi", "pay bill", "no"),
             conversation("hi", "talk to an operator", "Yes, I'm a customer"),
             conversation("pay bill"),
             conversation("pay bill", "I like swimming"),
             conversation("pay bill", "I like coffee", "I like tea", "no"),
-            conversation("pay bill", "Yes, I'm a customer")
-                .thenLater("pay bill"),
-            conversation("pay bill", "No, I'm not")
-                .thenLater("pay bill"),
-
             conversation("talk to an operator"),
             conversation("oh hi there, how are you doing"),
             conversation("walk my dog", "Yes, I'm a customer")
