@@ -4,11 +4,12 @@ import org.apache.commons.lang3.StringUtils;
 import org.approvaltests.Approvals;
 import org.approvaltests.core.Options;
 import org.junit.jupiter.api.Test;
-import org.lambda.query.Queryable;
 import org.learnwithllew.week3.StoryBoard;
 import org.learnwithllew.week5.Conversations;
 
 import java.util.List;
+
+import static org.lambda.query.Query.select;
 
 // dual conversations (.and) -> some can’t convert v2 -> setting state
 public class Week5 {
@@ -57,7 +58,7 @@ public class Week5 {
             """;
         var conversation1 = conversation("pay bill", "Yes, I'm a customer");
         var conversation2 = conversation("pay bill");
-        var conversations = Queryable.as(conversation1, conversation2);
+        var conversations = List.of(conversation1, conversation2);
 
         Approvals.verify(haveConversations(conversations), new Options().inline(expected));
     }
@@ -85,7 +86,7 @@ public class Week5 {
             """;
         var conversation1 = conversation("pay bill", "No, I'm not");
         var conversation2 = conversation("pay bill");
-        var conversations = Queryable.as(conversation1, conversation2);
+        var conversations = List.of(conversation1, conversation2);
 
         Approvals.verify(haveConversations(conversations), new Options().inline(expected));
     }
@@ -107,12 +108,12 @@ public class Week5 {
         return storyBoard;
     }
 
-    private String haveConversations(Queryable<Conversations> conversations) {
+    private String haveConversations(List<Conversations> conversations) {
         BotOutput output = new BotOutput();
         Bot bot = new Bot(output);
 
         var separator = "******************************************\n";
-        String conversationText = conversations.select(Conversations::printMessages).join(", ");
+        String conversationText = select(conversations, Conversations::printMessages).join(", ");
         var storyBoard = "%s* %s%s\n%s".formatted(separator, conversationText,
             StringUtils.leftPad("*", separator.length() - 3 - conversationText.length()), separator);
         for (int i = 0; i < conversations.size(); i++) {
