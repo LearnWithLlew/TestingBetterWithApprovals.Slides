@@ -97,14 +97,7 @@ public class Week5 {
 
         var separator = "******************************************\n";
         var storyBoard = "%s* %s%s\n%s".formatted(separator, conversations.printMessages(), StringUtils.leftPad("*", separator.length() - 3 - conversations.printMessages().length()), separator);
-        for (int i = 0; i < conversations.conversations.size(); i++) {
-            var conversation = conversations.conversations.get(i);
-            var messages = conversation.messages;
-            if (1 < conversations.conversations.size()) {
-                storyBoard += String.format("%s***** Conversation %s *****\n", i == 0 ? "" : "\n", i + 1);
-            }
-            storyBoard += StoryBoard.create(bot, output, messages);
-        }
+        storyBoard += StoryBoard.create(bot, output, conversations.messages);
         return storyBoard;
     }
 
@@ -117,12 +110,12 @@ public class Week5 {
         var storyBoard = "%s* %s%s\n%s".formatted(separator, conversationText,
             StringUtils.leftPad("*", separator.length() - 3 - conversationText.length()), separator);
         for (int i = 0; i < conversations.size(); i++) {
-            var conversation = conversations.get(i).conversations.first();
-            var messages = conversation.messages;
+            var conversation = conversations.get(i);
             if (1 < conversations.size()) {
                 storyBoard += String.format("%s***** Conversation %s *****\n", i == 0 ? "" : "\n", i + 1);
             }
-            storyBoard += StoryBoard.create(bot, output, messages);
+            storyBoard += StoryBoard.create(bot, output, conversation.messages);
+
         }
         return storyBoard;
     }
