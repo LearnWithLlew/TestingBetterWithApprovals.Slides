@@ -4,6 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.approvaltests.Approvals;
 import org.approvaltests.core.Options;
 import org.junit.jupiter.api.Test;
+import org.lambda.query.Queryable;
 import org.learnwithllew.week3.StoryBoard;
 import org.learnwithllew.week5.Conversations;
 
@@ -35,6 +36,9 @@ public class Week5 {
     @Test
     void handleExistingCustomer() {
         var expected = """
+            ******************************************
+            * [pay bill, Yes, I'm a customer], [pay bill]*
+            ******************************************
             ***** Conversation 1 *****
             [Customer]: pay bill
             [     Bot]: Hi there! I'm your virtual assistant.
@@ -53,24 +57,17 @@ public class Week5 {
             """;
         var conversation1 = conversation("pay bill", "Yes, I'm a customer");
         var conversation2 = conversation("pay bill");
+        var conversations = Queryable.as(conversation1, conversation2);
 
-        BotOutput output = new BotOutput();
-        Bot bot = new Bot(output);
-
-        var messages = conversation1.conversations.first().messages;
-        var storyBoard = "***** Conversation 1 *****\n";
-        storyBoard += StoryBoard.create(bot, output, messages);
-
-        var messages2 = conversation2.conversations.first().messages;
-        storyBoard += "\n***** Conversation 2 *****\n";
-        storyBoard += StoryBoard.create(bot, output, messages2);
-
-        Approvals.verify(storyBoard, new Options().inline(expected));
+        Approvals.verify(haveConversations(conversations), new Options().inline(expected));
     }
 
     @Test
     void handleProspect() {
         var expected = """
+            ******************************************
+            * [pay bill, No, I'm not], [pay bill]    *
+            ******************************************
             ***** Conversation 1 *****
             [Customer]: pay bill
             [     Bot]: Hi there! I'm your virtual assistant.
@@ -88,19 +85,9 @@ public class Week5 {
             """;
         var conversation1 = conversation("pay bill", "No, I'm not");
         var conversation2 = conversation("pay bill");
+        var conversations = Queryable.as(conversation1, conversation2);
 
-        BotOutput output = new BotOutput();
-        Bot bot = new Bot(output);
-
-        var messages = conversation1.conversations.first().messages;
-        var storyBoard = "***** Conversation 1 *****\n";
-        storyBoard += StoryBoard.create(bot, output, messages);
-
-        var messages2 = conversation2.conversations.first().messages;
-        storyBoard += "\n***** Conversation 2 *****\n";
-        storyBoard += StoryBoard.create(bot, output, messages2);
-
-        Approvals.verify(storyBoard, new Options().inline(expected));
+        Approvals.verify(haveConversations(conversations), new Options().inline(expected));
     }
 
     private String haveConversation(Conversations conversations) {
@@ -113,6 +100,25 @@ public class Week5 {
             var conversation = conversations.conversations.get(i);
             var messages = conversation.messages;
             if (1 < conversations.conversations.size()) {
+                storyBoard += String.format("%s***** Conversation %s *****\n", i == 0 ? "" : "\n", i + 1);
+            }
+            storyBoard += StoryBoard.create(bot, output, messages);
+        }
+        return storyBoard;
+    }
+
+    private String haveConversations(Queryable<Conversations> conversations) {
+        BotOutput output = new BotOutput();
+        Bot bot = new Bot(output);
+
+        var separator = "******************************************\n";
+        String conversationText = conversations.select(Conversations::printMessages).join(", ");
+        var storyBoard = "%s* %s%s\n%s".formatted(separator, conversationText,
+            StringUtils.leftPad("*", separator.length() - 3 - conversationText.length()), separator);
+        for (int i = 0; i < conversations.size(); i++) {
+            var conversation = conversations.get(i).conversations.first();
+            var messages = conversation.messages;
+            if (1 < conversations.size()) {
                 storyBoard += String.format("%s***** Conversation %s *****\n", i == 0 ? "" : "\n", i + 1);
             }
             storyBoard += StoryBoard.create(bot, output, messages);
