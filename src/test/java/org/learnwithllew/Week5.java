@@ -37,9 +37,9 @@ public class Week5 {
     @Test
     void handleExistingCustomer() {
         var expected = """
-            ******************************************
-            * [pay bill, Yes, I'm a customer], [pay bill]*
-            ******************************************
+            ****************************************************************
+            * [pay bill, Yes, I'm a customer], [pay bill]                  *
+            ****************************************************************
             ***** Conversation 1 *****
             [Customer]: pay bill
             [     Bot]: Hi there! I'm your virtual assistant.
@@ -66,9 +66,9 @@ public class Week5 {
     @Test
     void handleProspect() {
         var expected = """
-            ******************************************
-            * [pay bill, No, I'm not], [pay bill]    *
-            ******************************************
+            ****************************************************************
+            * [pay bill, No, I'm not], [pay bill]                          *
+            ****************************************************************
             ***** Conversation 1 *****
             [Customer]: pay bill
             [     Bot]: Hi there! I'm your virtual assistant.
@@ -95,7 +95,7 @@ public class Week5 {
         BotOutput output = new BotOutput();
         Bot bot = new Bot(output);
 
-        var separator = "******************************************\n";
+        var separator = "****************************************************************\n";
         var storyBoard = "%s* %s%s\n%s".formatted(separator, conversations.printMessages(), StringUtils.leftPad("*", separator.length() - 3 - conversations.printMessages().length()), separator);
         storyBoard += StoryBoard.create(bot, output, conversations.messages);
         return storyBoard;
@@ -105,7 +105,7 @@ public class Week5 {
         BotOutput output = new BotOutput();
         Bot bot = new Bot(output);
 
-        var separator = "******************************************\n";
+        var separator = "****************************************************************\n";
         String conversationText = select(conversations, Conversations::printMessages).join(", ");
         var storyBoard = "%s* %s%s\n%s".formatted(separator, conversationText,
             StringUtils.leftPad("*", separator.length() - 3 - conversationText.length()), separator);
