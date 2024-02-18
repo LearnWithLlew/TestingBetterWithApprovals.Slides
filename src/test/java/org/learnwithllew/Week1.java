@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class Week1 {
 
     @Test
-    void botIntroducesItselfAndClarifiesIntent() {
+    void botClarifiesIntentOnGreeting() {
         // given
         EventNotification message = TestUtils.eventNotification()
             .userId(new UserId.Builder().channel(Channel.TEXT).id(UUID.randomUUID().toString()).build())
@@ -34,7 +34,7 @@ public class Week1 {
     }
 
     @Test
-    void repeatedGreeting() {
+    void repeatedGreetingGetsAnotherPrompt() {
         // given
         EventNotification message = TestUtils.eventNotification()
             .userId(new UserId.Builder().channel(Channel.TEXT).id(UUID.randomUUID().toString()).build())
