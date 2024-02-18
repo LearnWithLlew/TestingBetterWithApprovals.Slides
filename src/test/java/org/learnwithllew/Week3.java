@@ -8,17 +8,17 @@ import org.learnwithllew.week3.StoryBoard;
 public class Week3 {
 
     @Test
-    void botIntroducesItselfAndClarifiesIntent() {
+    void botClarifiesIntentOnGreeting() {
         verifyConversation("hi");
     }
 
     @Test
-    void test2() {
+    void repeatedGreetingGetsAnotherPrompt() {
         verifyConversation("hi", "hi");
     }
 
     @Test
-    void testPayBill() {
+    void botOffersSelfServiceOnSupportedIntents() {
         verifyConversation("hi", "pay bill", "Yes, I'm a customer");
     }
 
