@@ -10,7 +10,7 @@ import org.learnwithllew.week4.Conversations;
 public class Week4 {
 
     @Test
-    void test1() {
+    void botClarifiesIntentOnGreeting() {
         var expected = """
             [Customer]: hi
             [     Bot]: Hi there! I'm your virtual assistant.
@@ -20,7 +20,7 @@ public class Week4 {
     }
 
     @Test
-    void test4() {
+    void customerClarifiesIntentWhenPrompted() {
         var expected = """
             [Customer]: hi
             [     Bot]: Hi there! I'm your virtual assistant.
@@ -35,7 +35,7 @@ public class Week4 {
     }
 
     @Test
-    void test10() {
+    void repeatedIrrelevantRepliesToCustomerTypePrompt() {
         var expected = """
             [Customer]: pay bill
             [     Bot]: Hi there! I'm your virtual assistant.
@@ -58,7 +58,7 @@ public class Week4 {
     }
 
     @Test
-    void test5() {
+    void botOffersSelfServiceOnSupportedIntents() {
         var expected = """
             [Customer]: hi
             [     Bot]: Hi there! I'm your virtual assistant.
@@ -75,7 +75,7 @@ public class Week4 {
     }
 
     @Test
-    void test2() {
+    void repeatedGreetingGetsAnotherPrompt() {
         var expected = """
             [Customer]: hi
             [     Bot]: Hi there! I'm your virtual assistant.
@@ -88,7 +88,7 @@ public class Week4 {
     }
 
     @Test
-    void test3() {
+    void botOnlyTriesToClarifyIntentTwice() {
         var expected = """
             [Customer]: hi
             [     Bot]: Hi there! I'm your virtual assistant.
@@ -105,10 +105,8 @@ public class Week4 {
         verifyConversations(expected, "hi", "hi", "hi");
     }
 
-
-
     @Test
-    void test6() {
+    void prospectiveCustomersAreRoutedToHumanAgent() {
         var expected = """
             [Customer]: hi
             [     Bot]: Hi there! I'm your virtual assistant.
@@ -125,7 +123,7 @@ public class Week4 {
     }
 
     @Test
-    void test7() {
+    void customerEscalatesToAgentThenBotRoutesToHumanAgent() {
         var expected = """
             [Customer]: hi
             [     Bot]: Hi there! I'm your virtual assistant.
@@ -142,7 +140,7 @@ public class Week4 {
     }
 
     @Test
-    void test8() {
+    void firstMessageIsNotGreeting() {
         var expected = """
             [Customer]: pay bill
             [     Bot]: Hi there! I'm your virtual assistant.
@@ -155,7 +153,7 @@ public class Week4 {
     }
 
     @Test
-    void test9() {
+    void irrelevantAnswerToAreYouACustomerPrompt() {
         var expected = """
             [Customer]: pay bill
             [     Bot]: Hi there! I'm your virtual assistant.
@@ -172,7 +170,7 @@ public class Week4 {
     }
 
     @Test
-    void test11() {
+    void customerStartsWithEscalatingToAgent() {
         var expected = """
             [Customer]: talk to an operator
             [     Bot]: Hi there! I'm your virtual assistant.
@@ -185,7 +183,7 @@ public class Week4 {
     }
 
     @Test
-    void test12() {
+    void firstMessageIsLongishGreeting() {
         var expected = """
             [Customer]: oh hi there, how are you doing
             [     Bot]: Hi there! I'm your virtual assistant.
@@ -198,7 +196,7 @@ public class Week4 {
     }
 
     @Test
-    void test13() {
+    void irrelevantFirstMessage() {
         var expected = """
             [Customer]: walk my dog
             [     Bot]: Hi there! I'm your virtual assistant.
