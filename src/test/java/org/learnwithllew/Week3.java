@@ -1,6 +1,8 @@
 package org.learnwithllew;
 
 import org.approvaltests.Approvals;
+import org.approvaltests.reporters.DelayedClipboardReporter;
+import org.approvaltests.reporters.UseReporter;
 import org.junit.jupiter.api.Test;
 import org.learnwithllew.week3.StoryBoard;
 
@@ -18,8 +20,23 @@ public class Week3 {
     }
 
     @Test
+    void firstMessageIsNotGreeting() {
+        verifyConversation( "pay bill");
+    }
+
+    @Test
     void botOffersSelfServiceOnSupportedIntents() {
         verifyConversation("hi", "pay bill", "Yes, I'm a customer");
+    }
+
+    @Test
+    void customerEscalatesToAgentThenBotRoutesToHumanAgent() {
+        verifyConversation("hi", "talk to an operator", "Yes, I'm a customer");
+    }
+
+    @Test
+    void customerStartsWithEscalatingToAgent() {
+        verifyConversation("talk to an operator");
     }
 
     private void verifyConversation(String... messages) {
