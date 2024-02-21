@@ -1,9 +1,11 @@
-package org.learnwithllew;
+package org.learnwithllew.week5;
 
 import org.apache.commons.lang3.StringUtils;
 import org.approvaltests.Approvals;
 import org.approvaltests.core.Options;
 import org.junit.jupiter.api.Test;
+import org.learnwithllew.Bot;
+import org.learnwithllew.BotOutput;
 import org.learnwithllew.week3.StoryBoard;
 import org.learnwithllew.week5.Conversations;
 

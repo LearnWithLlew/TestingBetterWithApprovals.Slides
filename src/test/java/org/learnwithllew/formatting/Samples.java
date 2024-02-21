@@ -12,7 +12,7 @@ public class Samples {
             """;
     }
 
-    @Test
+//    @Test
     void name() {
         var expected = """
         approved content

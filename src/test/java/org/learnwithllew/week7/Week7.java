@@ -1,4 +1,4 @@
-package org.learnwithllew;
+package org.learnwithllew.week7;
 
 import com.spun.util.Tuple;
 import org.apache.commons.lang3.mutable.MutableInt;
@@ -6,6 +6,8 @@ import org.approvaltests.Approvals;
 import org.approvaltests.core.Options;
 import org.junit.jupiter.api.Test;
 import org.lambda.query.Queryable;
+import org.learnwithllew.Bot;
+import org.learnwithllew.BotOutput;
 import org.learnwithllew.week5.Conversations;
 import org.learnwithllew.week7.StoryBoard;
 

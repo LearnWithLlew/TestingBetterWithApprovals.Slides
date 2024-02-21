@@ -1,9 +1,10 @@
-package org.learnwithllew;
+package org.learnwithllew.week2;
 
 import org.approvaltests.Approvals;
 import org.approvaltests.core.Options;
 import org.junit.jupiter.api.Test;
-import org.learnwithllew.week2.StoryBoard;
+import org.learnwithllew.Bot;
+import org.learnwithllew.BotOutput;
 
 // Full printed story -> whitespace -> json
 public class Week2 {

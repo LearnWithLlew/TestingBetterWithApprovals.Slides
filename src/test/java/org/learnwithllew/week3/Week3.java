@@ -1,9 +1,11 @@
-package org.learnwithllew;
+package org.learnwithllew.week3;
 
 import org.approvaltests.Approvals;
 import org.approvaltests.reporters.DelayedClipboardReporter;
 import org.approvaltests.reporters.UseReporter;
 import org.junit.jupiter.api.Test;
+import org.learnwithllew.Bot;
+import org.learnwithllew.BotOutput;
 import org.learnwithllew.week3.StoryBoard;
 
 // Pretty printed json -> inline -> everywhere

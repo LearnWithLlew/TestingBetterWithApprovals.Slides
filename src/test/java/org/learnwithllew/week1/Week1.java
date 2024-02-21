@@ -1,6 +1,7 @@
-package org.learnwithllew;
+package org.learnwithllew.week1;
 
 import org.junit.jupiter.api.Test;
+import org.learnwithllew.*;
 
 import java.util.List;
 import java.util.UUID;
