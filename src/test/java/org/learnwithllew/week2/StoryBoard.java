@@ -9,6 +9,7 @@ public class StoryBoard {
 
     private static final String CUSTOMER = "[Customer]:";
     private static final String BOT = "[Bot]:";
+    private static final String TAB = "  ";
     public static int conversationId = 0;
 
     public static String create(Bot bot, BotOutput botOutput, String... messages) {
@@ -46,7 +47,7 @@ public class StoryBoard {
             if (i == 0) {
                 output += String.format("%s %s\n", BOT, lines[i]);
             } else {
-                output += String.format("%s %s\n", "  ", lines[i]);
+                output += String.format("%s %s\n", TAB, lines[i]);
             }
         }
         return output;
