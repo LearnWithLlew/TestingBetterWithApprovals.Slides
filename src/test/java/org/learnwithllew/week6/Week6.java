@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.learnwithllew.Bot;
 import org.learnwithllew.BotOutput;
 import org.learnwithllew.week3.StoryBoard;
-import org.learnwithllew.week5.Conversations;
+import org.learnwithllew.week5.Conversation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,12 +41,12 @@ public class Week6 {
         Approvals.verifyAll("Chatbot conversations", conversations, c -> haveConversations(c));
     }
 
-    private String haveConversations(List<Conversations> conversations) {
+    private String haveConversations(List<Conversation> conversations) {
         BotOutput output = new BotOutput();
         Bot bot = new Bot(output);
 
         var separator = "****************************************************************\n";
-        String conversationText = select(conversations, Conversations::printMessages).join(", ");
+        String conversationText = select(conversations, Conversation::printMessages).join(", ");
         var storyBoard = "%s* %s%s\n%s".formatted(separator, conversationText,
             StringUtils.leftPad("*", separator.length() - 3 - conversationText.length()), separator);
         for (int i = 0; i < conversations.size(); i++) {
@@ -61,16 +61,16 @@ public class Week6 {
     }
 
     private MultipleConversations conversation(String... messages) {
-        return new MultipleConversations(new Conversations(messages));
+        return new MultipleConversations(new Conversation(messages));
     }
 
-    private class MultipleConversations extends ArrayList<Conversations> {
-        public MultipleConversations(Conversations conversations) {
+    private class MultipleConversations extends ArrayList<Conversation> {
+        public MultipleConversations(Conversation conversations) {
             add(conversations);
         }
 
         public MultipleConversations thenConversation(String... messages) {
-            add(new Conversations(messages));
+            add(new Conversation(messages));
             return this;
         }
     }

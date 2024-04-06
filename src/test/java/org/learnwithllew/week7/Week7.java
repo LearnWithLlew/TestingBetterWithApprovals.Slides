@@ -8,8 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.lambda.query.Queryable;
 import org.learnwithllew.Bot;
 import org.learnwithllew.BotOutput;
-import org.learnwithllew.week5.Conversations;
-import org.learnwithllew.week7.StoryBoard;
+import org.learnwithllew.week5.Conversation;
 
 // when everything is done
 public class Week7 {
@@ -50,7 +49,7 @@ public class Week7 {
 
     private String haveConversations(Tuple<Integer, MultipleConversations> conversations) {
 
-        String conversationText = conversations.getSecond().select(Conversations::printMessages).join(", ");
+        String conversationText = conversations.getSecond().select(Conversation::printMessages).join(", ");
         var storyBoard = """
             ### Scenario %s
             #### %s
@@ -80,16 +79,16 @@ public class Week7 {
     }
 
     private MultipleConversations conversation(String... messages) {
-        return new MultipleConversations(new Conversations(messages));
+        return new MultipleConversations(new Conversation(messages));
     }
 
-    private class MultipleConversations extends Queryable<Conversations> {
-        public MultipleConversations(Conversations conversations) {
+    private class MultipleConversations extends Queryable<Conversation> {
+        public MultipleConversations(Conversation conversations) {
             add(conversations);
         }
 
         public MultipleConversations thenConversation(String... messages) {
-            add(new Conversations(messages));
+            add(new Conversation(messages));
             return this;
         }
     }

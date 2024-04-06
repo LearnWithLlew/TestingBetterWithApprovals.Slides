@@ -1,10 +1,10 @@
 package org.learnwithllew.week5;
 
-public class Conversations {
+public class Conversation {
 
     public String[] messages;
 
-    public Conversations(String... conversations) {
+    public Conversation(String... conversations) {
         messages = conversations;
     }
 

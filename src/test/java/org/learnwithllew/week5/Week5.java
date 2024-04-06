@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import org.learnwithllew.Bot;
 import org.learnwithllew.BotOutput;
 import org.learnwithllew.week3.StoryBoard;
-import org.learnwithllew.week5.Conversations;
 
 import java.util.List;
 
@@ -93,7 +92,7 @@ public class Week5 {
         Approvals.verify(haveConversations(conversations), new Options().inline(expected));
     }
 
-    private String haveConversation(Conversations conversations) {
+    private String haveConversation(Conversation conversations) {
         BotOutput output = new BotOutput();
         Bot bot = new Bot(output);
 
@@ -103,12 +102,12 @@ public class Week5 {
         return storyBoard;
     }
 
-    private String haveConversations(List<Conversations> conversations) {
+    private String haveConversations(List<Conversation> conversations) {
         BotOutput output = new BotOutput();
         Bot bot = new Bot(output);
 
         var separator = "****************************************************************\n";
-        String conversationText = select(conversations, Conversations::printMessages).join(", ");
+        String conversationText = select(conversations, Conversation::printMessages).join(", ");
         var storyBoard = "%s* %s%s\n%s".formatted(separator, conversationText,
             StringUtils.leftPad("*", separator.length() - 3 - conversationText.length()), separator);
         for (int i = 0; i < conversations.size(); i++) {
@@ -122,7 +121,7 @@ public class Week5 {
         return storyBoard;
     }
 
-    private Conversations conversation(String... messages) {
-        return new Conversations(messages);
+    private Conversation conversation(String... messages) {
+        return new Conversation(messages);
     }
 }
