@@ -58,9 +58,9 @@ public class Week5 {
             [     Bot]: Let me try to help you.
             [     Bot]: transfers to 'self_service'
             """;
-        var conversation1 = conversation("pay bill", "Yes, I'm a customer");
-        var conversation2 = conversation("pay bill");
-        var conversations = new MultipleConversations(conversation1, conversation2);
+        var conv1 = conversation("pay bill", "Yes, I'm a customer");
+        var conv2 = conversation("pay bill");
+        var conversations = new MultipleConversations(conv1, conv2);
 
         Approvals.verify(haveConversations(conversations), new Options().inline(expected));
     }
@@ -86,9 +86,9 @@ public class Week5 {
             [     Bot]: Let me try to help you.
             [     Bot]: transfers to 'operator'
             """;
-        var conversation1 = conversation("pay bill", "No, I'm not");
-        var conversation2 = conversation("pay bill");
-        var conversations = new MultipleConversations(conversation1, conversation2);
+        var conv1 = conversation("pay bill", "No, I'm not");
+        var conv2 = conversation("pay bill");
+        var conversations = new MultipleConversations(conv1, conv2);
 
         Approvals.verify(haveConversations(conversations), new Options().inline(expected));
     }
