@@ -60,7 +60,7 @@ public class Week5 {
             """;
         var conversation1 = conversation("pay bill", "Yes, I'm a customer");
         var conversation2 = conversation("pay bill");
-        var conversations = List.of(conversation1, conversation2);
+        var conversations = new MultipleConversations(conversation1, conversation2);
 
         Approvals.verify(haveConversations(conversations), new Options().inline(expected));
     }
@@ -88,7 +88,7 @@ public class Week5 {
             """;
         var conversation1 = conversation("pay bill", "No, I'm not");
         var conversation2 = conversation("pay bill");
-        var conversations = List.of(conversation1, conversation2);
+        var conversations = new MultipleConversations(conversation1, conversation2);
 
         Approvals.verify(haveConversations(conversations), new Options().inline(expected));
     }
