@@ -27,4 +27,5 @@ He is the creator of the open-source testing tool [ApprovalTests](https:///www.a
 [Link to resources Page](https://github.com/isidore/Talks/blob/master/BetterTestingWithApprovals.md)
 
 ## Given At:
-https://www.meetup.com/seattle-software-craftsmanship/events/294309406/
+1. [Calgary Software Crafters meetup April 2024](https://www.meetup.com/calgary-software-crafters/events/300177416/)
+1. [Seattle Software Crafters meetup February 2024](https://www.meetup.com/seattle-software-craftsmanship/events/294309406/)
