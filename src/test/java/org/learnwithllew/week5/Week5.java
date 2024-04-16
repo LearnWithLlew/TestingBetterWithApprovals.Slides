@@ -18,6 +18,7 @@ public class Week5 {
     @Test
     void testConversations() {
         var conversations = List.of(
+//            conversation("hi", "talk to an operator", "no"),
             conversation("hi"),
             conversation("hi", "pay bill"),
             conversation("pay bill", "I like coffee", "I like tea", "no"),
@@ -29,6 +30,7 @@ public class Week5 {
             conversation("pay bill", "I like swimming"),
             conversation("talk to an operator"),
             conversation("hi", "pay bill", "Yes, I'm a customer"),
+            conversation("hi, can you please give me the special menu?"),
             conversation("oh hi there, how are you doing")
         );
 

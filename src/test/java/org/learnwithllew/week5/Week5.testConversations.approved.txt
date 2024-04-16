@@ -72,7 +72,7 @@ Chatbot conversations
 [     Bot]: What would you like to do today?
 [Customer]: hi
 [     Bot]: Hmmm, tell me a little more so I can help you.
-What would you like to do today?
+            What would you like to do today?
 
 ****************************************************************
 * [hi, hi, hi]                                                 *
@@ -82,7 +82,7 @@ What would you like to do today?
 [     Bot]: What would you like to do today?
 [Customer]: hi
 [     Bot]: Hmmm, tell me a little more so I can help you.
-What would you like to do today?
+            What would you like to do today?
 [Customer]: hi
 [     Bot]: Let me try to help you.
 [     Bot]: Are you a customer?
@@ -138,6 +138,13 @@ What would you like to do today?
 [        ]:   2) No, I'm not
 [Customer]: Yes, I'm a customer
 [     Bot]: transfers to 'self_service'
+
+****************************************************************
+* [hi, can you please give me the special menu?]               *
+****************************************************************
+[Customer]: hi, can you please give me the special menu?
+[     Bot]: Hm, I'm not sure I can help you with this.
+            Let me transfer to an operator...
 
 ****************************************************************
 * [oh hi there, how are you doing]                             *

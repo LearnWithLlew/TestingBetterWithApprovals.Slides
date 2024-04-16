@@ -4,6 +4,9 @@ import org.learnwithllew.*;
 
 public class StoryBoard {
 
+    private static final String CUSTOMER = "[Customer]:";
+    private static final String BOT = "[     Bot]:";
+    private static final String TAB = "           ";
     public static int conversationId = 0;
 
     public static String create(Bot bot, BotOutput botOutput, String... messages) {
@@ -15,7 +18,7 @@ public class StoryBoard {
 
         StringBuilder board = new StringBuilder();
         for (int i = 0; i < messages.length; i++) {
-            board.append(String.format("[Customer]: %s\n", messages[i]));
+            board.append(String.format("%s %s\n", CUSTOMER, messages[i]));
             EventNotification initialMessage = TestUtils.messageFromCustomer(currentConversationId, "" + i, messages[i]).build();
             bot.receive(initialMessage);
             BotAction actions = botOutput.read(initialMessage.getConversationId());
@@ -28,13 +31,13 @@ public class StoryBoard {
 
     private static String printCommand(Command command, boolean useOriginalJson) {
         if (command instanceof SendPlainMessageCommand plainMessage) {
-            return String.format("[     Bot]: %s\n", plainMessage.message());
+            return print(plainMessage);
         } else if (command instanceof SendQuestionCommand questionCommand) {
-            return useOriginalJson ? printJson(questionCommand): prettyPrint(questionCommand);
+            return prettyPrint(questionCommand);
         } else if (command instanceof TransferConversationCommand transferCommand) {
-            return String.format("[     Bot]: transfers to '%s'\n", transferCommand.destination());
+            return String.format("%s transfers to '%s'\n", BOT, transferCommand.destination());
         } else {
-            return String.format("[     Bot]: %s\n", command);
+            return String.format("%s %s\n", BOT, command);
         }
     }
 
@@ -84,7 +87,18 @@ public class StoryBoard {
             """;
         return String.format(output, command.question(), command.answers()[0], command.answers()[1]);
     }
-
+    private static String print(SendPlainMessageCommand plainMessage) {
+        String[] lines = plainMessage.message().split("\n");
+        String output = "";
+        for (int i = 0; i < lines.length; i++) {
+            if (i == 0) {
+                output += String.format("%s %s\n", BOT, lines[i]);
+            } else {
+                output += String.format("%s %s\n", TAB, lines[i]);
+            }
+        }
+        return output;
+    }
     private static String prettyPrint(SendQuestionCommand command) {
         String output = "";
         String header = "[     Bot]: ";

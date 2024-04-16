@@ -35,9 +35,7 @@ public class Bot {
         HardcodedBotResponses botResponses = getHardcodedResponses(customerType);
         BotAction response = botResponses.search(messagesSoFar);
         if (response == null) {
-            throw new RuntimeException("Not implemented. Bot does not have a reaction to a given chain of messages: " +
-                messagesSoFar +
-                ". \nConsider adding in " + botResponses.getClass().getSimpleName() + ".java");
+            return new BotAction(List.of(new SendPlainMessageCommand("Hm, I'm not sure I can help you with this.\nLet me transfer to an operator...")));
         }
         return response;
     }

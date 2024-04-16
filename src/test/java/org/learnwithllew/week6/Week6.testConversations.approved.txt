@@ -16,7 +16,7 @@ Chatbot conversations
 [     Bot]: What would you like to do today?
 [Customer]: hi
 [     Bot]: Hmmm, tell me a little more so I can help you.
-What would you like to do today?
+            What would you like to do today?
 
 ****************************************************************
 * [hi, hi, hi]                                                 *
@@ -26,7 +26,7 @@ What would you like to do today?
 [     Bot]: What would you like to do today?
 [Customer]: hi
 [     Bot]: Hmmm, tell me a little more so I can help you.
-What would you like to do today?
+            What would you like to do today?
 [Customer]: hi
 [     Bot]: Let me try to help you.
 [     Bot]: Are you a customer?
