@@ -36,6 +36,10 @@ public class UnknownCustomerResponses extends HardcodedBotResponses {
             new BotAction(List.of(
                 TRANSFER_TO_HUMAN)));
         knownResponses.insert(
+            List.of("hi", "talk to an operator", "no"),
+            new BotAction(List.of(
+                TRANSFER_TO_HUMAN)));
+        knownResponses.insert(
             List.of("hi", "talk to an operator"),
             new BotAction(List.of(
                 LET_ME_HELP_YOU,
