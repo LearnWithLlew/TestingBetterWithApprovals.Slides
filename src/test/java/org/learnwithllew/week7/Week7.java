@@ -24,12 +24,14 @@ public class Week7 {
             conversation("hi", "pay bill", "Yes, I'm a customer"),
             conversation("hi", "pay bill", "no"),
             conversation("hi", "talk to an operator", "Yes, I'm a customer"),
+            conversation("hi", "talk to an operator", "no"),
             conversation("oh hi there, how are you doing"),
             conversation("pay bill"),
             conversation("pay bill", "I like swimming"),
             conversation("pay bill", "I like coffee", "I like tea", "no"),
             conversation("walk my dog", "Yes, I'm a customer"),
             conversation("talk to an operator"),
+            conversation("hi, can you please give me the special menu?"),
             conversation("pay bill", "Yes, I'm a customer")
                 .thenConversation("pay bill"),
             conversation("pay bill", "No, I'm not")

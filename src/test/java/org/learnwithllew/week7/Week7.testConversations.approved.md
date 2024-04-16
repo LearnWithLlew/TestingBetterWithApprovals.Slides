@@ -7,14 +7,16 @@
 1. [[hi, pay bill, Yes, I'm a customer]](#scenario-5)
 1. [[hi, pay bill, no]](#scenario-6)
 1. [[hi, talk to an operator, Yes, I'm a customer]](#scenario-7)
-1. [[oh hi there, how are you doing]](#scenario-8)
-1. [[pay bill]](#scenario-9)
-1. [[pay bill, I like swimming]](#scenario-10)
-1. [[pay bill, I like coffee, I like tea, no]](#scenario-11)
-1. [[walk my dog, Yes, I'm a customer]](#scenario-12)
-1. [[talk to an operator]](#scenario-13)
-1. [[pay bill, Yes, I'm a customer],[pay bill]](#scenario-14)
-1. [[pay bill, No, I'm not],[pay bill]](#scenario-15)
+1. [[hi, talk to an operator, no]](#scenario-8)
+1. [[oh hi there, how are you doing]](#scenario-9)
+1. [[pay bill]](#scenario-10)
+1. [[pay bill, I like swimming]](#scenario-11)
+1. [[pay bill, I like coffee, I like tea, no]](#scenario-12)
+1. [[walk my dog, Yes, I'm a customer]](#scenario-13)
+1. [[talk to an operator]](#scenario-14)
+1. [[hi, can you please give me the special menu?]](#scenario-15)
+1. [[pay bill, Yes, I'm a customer],[pay bill]](#scenario-16)
+1. [[pay bill, No, I'm not],[pay bill]](#scenario-17)
 
 
 ### Scenario 1
@@ -125,6 +127,23 @@ What would you like to do today?
 ---
 
 ### Scenario 8
+#### [hi, talk to an operator, no]
+```
+[Customer]: hi
+[     Bot]: Hi there! I'm your virtual assistant.
+[     Bot]: What would you like to do today?
+[Customer]: talk to an operator
+[     Bot]: Let me try to help you.
+[     Bot]: Are you a customer?
+[        ]:   1) Yes, I'm a customer
+[        ]:   2) No, I'm not
+[Customer]: no
+[     Bot]: transfers to 'operator'
+
+```
+---
+
+### Scenario 9
 #### [oh hi there, how are you doing]
 ```
 [Customer]: oh hi there, how are you doing
@@ -137,7 +156,7 @@ What would you like to do today?
 ```
 ---
 
-### Scenario 9
+### Scenario 10
 #### [pay bill]
 ```
 [Customer]: pay bill
@@ -150,7 +169,7 @@ What would you like to do today?
 ```
 ---
 
-### Scenario 10
+### Scenario 11
 #### [pay bill, I like swimming]
 ```
 [Customer]: pay bill
@@ -167,7 +186,7 @@ What would you like to do today?
 ```
 ---
 
-### Scenario 11
+### Scenario 12
 #### [pay bill, I like coffee, I like tea, no]
 ```
 [Customer]: pay bill
@@ -190,7 +209,7 @@ What would you like to do today?
 ```
 ---
 
-### Scenario 12
+### Scenario 13
 #### [walk my dog, Yes, I'm a customer]
 ```
 [Customer]: walk my dog
@@ -205,7 +224,7 @@ What would you like to do today?
 ```
 ---
 
-### Scenario 13
+### Scenario 14
 #### [talk to an operator]
 ```
 [Customer]: talk to an operator
@@ -218,7 +237,17 @@ What would you like to do today?
 ```
 ---
 
-### Scenario 14
+### Scenario 15
+#### [hi, can you please give me the special menu?]
+```
+[Customer]: hi, can you please give me the special menu?
+[     Bot]: Hm, I'm not sure I can help you with this.
+Let me transfer to an operator...
+
+```
+---
+
+### Scenario 16
 #### [pay bill, Yes, I'm a customer], [pay bill]
 ```
 ***** Conversation 1 *****
@@ -240,7 +269,7 @@ What would you like to do today?
 ```
 ---
 
-### Scenario 15
+### Scenario 17
 #### [pay bill, No, I'm not], [pay bill]
 ```
 ***** Conversation 1 *****
