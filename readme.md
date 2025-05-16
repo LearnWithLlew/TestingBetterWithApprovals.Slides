@@ -3,7 +3,10 @@
   ![](https://github.com/LearnWithLlew/TestingBetterWithApprovals.Slides/blob/main/slides/TestingBetterwithApprovals.png?raw=true)
 
 
-## Decrisciption 
+## Code
+* [Java](https://github.com/LearnWithLlew/TestingBetterWithApprovals.Java)
+
+## Description
 
 Tests provide much more than simple regression. The test scenarios tell a story of what your code does and how it's used. Unfortunately, most unit tests obscure this in setup, mocks, and cryptic asserts. We're going to look at a few stories of taking unit tests and making them more expressive, so you can get a better sense of the story they are trying to tell, while at the same time making them easier to write.
 
@@ -19,7 +22,7 @@ Lada is a seasoned team leader with over 12 years of experience in Java and micr
 In addition to her technical skills, she also loves learning languages, is fluent in English and Russian, can speak a little French and Portuguese, and is currently immersed in learning Japanese.
 
 ### Llewellyn
-Llewelyn Falco is an agile technical coach who specializes in teaching teams how to slay their legacy code dragons. His style is akin to a personal trainer: working with the teams to create healthy and lasting technical habits.
+Llewellyn Falco is an agile technical coach who specializes in teaching teams how to slay their legacy code dragons. His style is akin to a personal trainer: working with the teams to create healthy and lasting technical habits.
 
 He is the creator of the open-source testing tool [ApprovalTests](https:///www.approvaltests.com), co-author of the [Mob Programming Guidebook](http://www.mobprogrammingguidebook.com/), and Co-founder of [TeachingKidsProgramming.org](https://teachingkidsprogramming.org/). He is an internationally renowned speaker who has presented over 200 conference sessions since 2009.
 
