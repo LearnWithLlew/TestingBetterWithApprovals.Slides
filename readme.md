@@ -4,7 +4,9 @@
 
 
 ## Code
-* [Java](https://github.com/LearnWithLlew/TestingBetterWithApprovals.Java)
+| | |
+| --- | --- |
+| [Java](https://github.com/LearnWithLlew/TestingBetterWithApprovals.Java) | [![Build and Test](https://github.com/LearnWithLlew/TestingBetterWithApprovals.Java/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/LearnWithLlew/TestingBetterWithApprovals.Java/actions/workflows/build-and-test.yml) | 
 
 ## Description
 
